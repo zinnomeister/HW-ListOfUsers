@@ -24,31 +24,28 @@ namespace SOHW_listOfUsers
             Console.WriteLine("If you want to add user - press 'Enter' or any key");
             Console.WriteLine("If you want to remove user - press 'Delete'");
             Console.WriteLine("If you want to print list of users - press 'F1'");
-            Console.WriteLine("If you want to save list of users to file - press 'F10'");
+            //Console.WriteLine("If you want to save list of users to file - press 'F10'");
             Console.WriteLine("If you want to clear list of users - press 'F8'");
             Console.WriteLine("If you want to exit - press 'Escape'");
 
             ConsoleKey key = Console.ReadKey().Key;
             if (key == ConsoleKey.Enter)
+            {
                 AddUser();
-
+                SaveToFile(filePath);
+            }
             else if (key == ConsoleKey.Delete)
+            {
                 DeleteUser();
-
+                SaveToFile(filePath);
+            }
             else if (key == ConsoleKey.F1)
-
                 foreach (var item in allUsers)
                     PrintList(item);
-
             else if (key == ConsoleKey.Escape)
                 Environment.Exit(0);
-
-            else if (key == ConsoleKey.F10)
-                SaveToFile(filePath);
-
             else if (key == ConsoleKey.F5)
                 ExtractFromFile(filePath);
-
             else if (key == ConsoleKey.F8)
                 allUsers.Clear();
 
@@ -59,8 +56,6 @@ namespace SOHW_listOfUsers
             Console.ResetColor();
 
             goto Action;
-
-            Console.ReadLine();
         }
         static void AddUser()
         {
@@ -76,7 +71,7 @@ namespace SOHW_listOfUsers
         }
 
         static void DeleteUser()
-        {           
+        {
             Console.WriteLine("\nInput the name of user:\t");
             var userToDelete = Console.ReadLine();
             allUsers.RemoveAll(x => x.Name == userToDelete);
