@@ -18,6 +18,7 @@ namespace SOHW_listOfUsers
         static void Main(string[] args)
         {
             string filePath = @"C:\Users\zinno\OneDrive\Разработка\Storage\ListOfUsers.txt";
+            char splitSeparator = '|';
 
         Action:
             Console.WriteLine("If you want to load list of users from file - press 'F5'");
@@ -31,24 +32,19 @@ namespace SOHW_listOfUsers
             ConsoleKey key = Console.ReadKey().Key;
             if (key == ConsoleKey.Enter)
                 AddUser();
-
             else if (key == ConsoleKey.Delete)
                 DeleteUser();
-
             else if (key == ConsoleKey.F1)
-
+            {
                 foreach (var item in allUsers)
                     PrintList(item);
-
+            }
             else if (key == ConsoleKey.Escape)
                 Environment.Exit(0);
-
             else if (key == ConsoleKey.F10)
                 SaveToFile(filePath);
-
             else if (key == ConsoleKey.F5)
-                ExtractFromFile(filePath);
-
+                ExtractFromFile(filePath, splitSeparator);
             else if (key == ConsoleKey.F8)
                 allUsers.Clear();
 
@@ -103,23 +99,23 @@ namespace SOHW_listOfUsers
             for (int i = 0; i < allUsersString.Length; i++)
             {
                 User user = allUsers[i];
-                allUsersString[i] = user.GetFullName();
+                allUsersString[i] = user.GetStringUserData();
             }
 
             File.WriteAllLines(filepath, allUsersString);
         }
 
-        static void ExtractFromFile(string filepath)
+        static void ExtractFromFile(string filepath, char separator)
         {
             List<string> allUsersFromFile = File.ReadAllLines(filepath).ToList();
-            foreach (string usersString in allUsersFromFile)
+            foreach (string userString in allUsersFromFile)
             {
                 User userFromFile = new User();
-                string[] users = usersString.Split('|');
-                userFromFile.Id = new Guid(users[0]);
-                userFromFile.Name = users[1];
-                userFromFile.PhoneNumber = users[2];
-                userFromFile.Password = users[3];
+                string[] userData = userString.Split();
+                userFromFile.Id = new Guid(userData[0]);
+                userFromFile.Name = userData[1];
+                userFromFile.PhoneNumber = userData[2];
+                userFromFile.Password = userData[3];
                 allUsers.Add(userFromFile);
             }
             Console.WriteLine();

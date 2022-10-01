@@ -14,7 +14,7 @@ namespace SOHW_listOfUsers
         public string PhoneNumber { get; set; }
         public string Password { get; set; }
 
-        public string GetFullName()
+        public string GetStringUserData()
         {
             return $"{Id}|{Name}|{PhoneNumber}|{Password}";
         }
