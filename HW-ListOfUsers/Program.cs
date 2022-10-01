@@ -14,11 +14,12 @@ namespace SOHW_listOfUsers
     class Program
     {
         static List<User> allUsers = new List<User>();
+        static char splitSeparator = '|';
+        static string filePath = @"C:\Users\zinno\OneDrive\Разработка\Storage\ListOfUsers.txt";
 
         static void Main(string[] args)
         {
             string filePath = @"C:\Users\zinno\OneDrive\Разработка\Storage\ListOfUsers.txt";
-            char splitSeparator = '|';
 
         Action:
             Console.WriteLine("If you want to load list of users from file - press 'F5'");
@@ -42,9 +43,9 @@ namespace SOHW_listOfUsers
             else if (key == ConsoleKey.Escape)
                 Environment.Exit(0);
             else if (key == ConsoleKey.F10)
-                SaveToFile(filePath);
+                SaveToFile();
             else if (key == ConsoleKey.F5)
-                ExtractFromFile(filePath, splitSeparator);
+                ExtractFromFile();
             else if (key == ConsoleKey.F8)
                 allUsers.Clear();
 
@@ -92,7 +93,7 @@ namespace SOHW_listOfUsers
                 + $"\t|ID: {user.Id}");
         }
 
-        static void SaveToFile(string filepath)
+        static void SaveToFile()
         {
             string[] allUsersString = new string[allUsers.Count];
 
@@ -102,12 +103,12 @@ namespace SOHW_listOfUsers
                 allUsersString[i] = user.GetStringUserData();
             }
 
-            File.WriteAllLines(filepath, allUsersString);
+            File.WriteAllLines(filePath, allUsersString);
         }
 
-        static void ExtractFromFile(string filepath, char separator)
+        static void ExtractFromFile()
         {
-            List<string> allUsersFromFile = File.ReadAllLines(filepath).ToList();
+            List<string> allUsersFromFile = File.ReadAllLines(filePath).ToList();
             foreach (string userString in allUsersFromFile)
             {
                 User userFromFile = new User();
