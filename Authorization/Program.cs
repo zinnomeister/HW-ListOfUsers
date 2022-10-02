@@ -14,48 +14,32 @@ namespace Authorization
         static void Main(string[] args)
         {
             ExtractFromFile();
-        InputLogin:
+        InputData:
             Console.WriteLine("Input Login/Name:");
-
             string inputName = Console.ReadLine();
 
-            foreach (var user in allUsers)
-            {
-                if (inputName == user.Name)
-                {
-                    Console.WriteLine("User found");
-                    goto InputPassword;
-                }
-            }
-
-            Console.WriteLine("User not found!");
-            goto InputLogin;
-
-        InputPassword:
             Console.WriteLine("Input Password:");
             string inputPassword = Console.ReadLine();
 
+
             foreach (var user in allUsers)
             {
-                if (inputPassword == user.Password && inputName == user.Name)
-                {
-                    Console.WriteLine("Successfully entrance!");
+                if (inputName == user.Name && inputPassword == user.Password)
                     goto Exit;
-                }
 
-                else
-                    Console.WriteLine("Wrong password! Try again!");
-                goto InputLogin;
             }
 
-            Exit:
+            Console.WriteLine("User not found!");
+            goto InputData;
+
+        Exit:
             Console.BackgroundColor = ConsoleColor.White;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("Welcome!!!");
-            Console.ReadLine();            
-                       
+            Console.ReadLine();
+
         }
- 
+
         static void ExtractFromFile()
         {
             List<string> allUsersFromFile = File.ReadAllLines(filePath).ToList();
