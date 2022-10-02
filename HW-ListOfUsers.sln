@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HW-ListOfUsers", "HW-ListOfUsers\HW-ListOfUsers.csproj", "{FE04CCA4-78B7-4CDA-A1F1-E6FE1C0BC109}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authorization", "Authorization\Authorization.csproj", "{3C18BAAD-E9AA-4D78-881E-B9B46E7A39C6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Authorization", "Authorization\Authorization.csproj", "{3C18BAAD-E9AA-4D78-881E-B9B46E7A39C6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddUser", "AddUser\AddUser.csproj", "{9DACAD0D-4BFE-4007-8F1A-2AA51F546591}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{3C18BAAD-E9AA-4D78-881E-B9B46E7A39C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C18BAAD-E9AA-4D78-881E-B9B46E7A39C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C18BAAD-E9AA-4D78-881E-B9B46E7A39C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DACAD0D-4BFE-4007-8F1A-2AA51F546591}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DACAD0D-4BFE-4007-8F1A-2AA51F546591}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DACAD0D-4BFE-4007-8F1A-2AA51F546591}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DACAD0D-4BFE-4007-8F1A-2AA51F546591}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
