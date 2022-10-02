@@ -19,7 +19,6 @@ namespace SOHW_listOfUsers
 
         static void Main(string[] args)
         {
-            string filePath = @"C:\Users\zinno\OneDrive\Разработка\Storage\ListOfUsers.txt";
 
         Action:
             Console.WriteLine("If you want to load list of users from file - press 'F5'");
